@@ -1,4 +1,4 @@
 ﻿using Algoritmos;
 
-var ordenacaoPorSelecao = new OrdenacaoPorSelecao();
-ordenacaoPorSelecao.InterfaceOrdenarPorSelecao();
+new InterfaceOrdenarPorSelecao().AcionaOrdenacaoPorSelecao();
+Console.ReadLine();
