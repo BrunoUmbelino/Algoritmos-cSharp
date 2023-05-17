@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Algoritmos
+﻿namespace Algoritmos
 {
     static public class Recursividade
     {
@@ -25,6 +19,12 @@ namespace Algoritmos
         {
             if (!numeros.Any()) return 0;
             else return numeros.First() + CalcularSoma(numeros.Skip(1));
+        }
+
+        public static int ContarItens(IEnumerable<int> itens)
+        {
+            if (!itens.Any()) return 0;
+            else return 1 + ContarItens(itens.Skip(1));
         }
     }
 }
