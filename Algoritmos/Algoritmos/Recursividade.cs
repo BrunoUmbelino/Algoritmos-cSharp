@@ -29,15 +29,18 @@
 
         public static int BuscarMaior(IEnumerable<int> numeros)
         {
-            if (numeros.Count() == 1) return numeros.First();
+            var nums = numeros.ToList();
+            if (!nums.Any()) return -1;
+            if (nums.Count() == 1) return nums.First();
+            else if (nums.First() > nums.Last())
+            {
+                return BuscarMaior(nums.SkipLast(1));
+            }
             else
             {
-                var maior = numeros.First();
-                if (maior > numeros.First())
-                {
-                    return maior;
-                }
-                else return BuscarMaior(numeros.Skip(1));
+                nums[0] = nums.Last();
+                nums.Remove(nums.Last());
+                return BuscarMaior(nums);
             }
         }
     }
