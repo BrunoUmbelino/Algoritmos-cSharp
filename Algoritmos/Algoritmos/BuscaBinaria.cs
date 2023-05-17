@@ -6,16 +6,43 @@ using System.Threading.Tasks;
 
 namespace Algoritmos
 {
-    internal class BuscaBinaria
+    public class BuscaBinaria
     {
         public int ContadorDeTentativas { get; set; } = 0;
-        public int? ImplementaBuscaBinaria(List<int> list, int itemBuscado)
+       
+        public void InterfaceBuscaBinaria()
+        {
+            var lista = new List<int> { };
+            for (var i = 1; i <= 100; i++)
+            {
+                lista.Add(i);
+            }
+
+            Console.WriteLine("Digite o número que deseja buscar da lista: ");
+            var item = Convert.ToInt32(Console.ReadLine());
+
+            var listaConcatenada = String.Join(",", lista);
+            Console.WriteLine($"\nLista: [{listaConcatenada}]\n");
+
+            var busca = new BuscaBinaria();
+            var resultado = busca.Buscar(lista, item);
+
+            if (resultado == null)
+            {
+                Console.WriteLine($"\nNúmero {item} não encontrado.");
+                return;
+            }
+
+            Console.WriteLine($"\nNúmero {resultado} encontrado com {busca.ContadorDeTentativas} tentativas.");
+        }
+
+        public int? Buscar(List<int> list, int itemBuscado)
         {
             var _list = list;
             var baixo = 0;
             var alto = _list.Count - 1;
 
-            while(baixo <= alto)
+            while (baixo <= alto)
             {
                 ContadorDeTentativas++;
 
@@ -32,32 +59,6 @@ namespace Algoritmos
             }
 
             return null;
-        }
-
-        public void UsaBuscaBinaria()
-        {
-            var lista = new List<int> { };
-            for (var i = 1; i <= 100; i++)
-            {
-                lista.Add(i);
-            }
-
-            Console.WriteLine("Digite o número que deseja buscar da lista: ");
-            var item = Convert.ToInt32(Console.ReadLine());
-
-            var listaConcatenada = String.Join(",", lista);
-            Console.WriteLine($"\nLista: [{listaConcatenada}]\n");
-
-            var busca = new BuscaBinaria();
-            var resultado = busca.ImplementaBuscaBinaria(lista, item);
-
-            if (resultado == null)
-            {
-                Console.WriteLine($"\nNúmero {item} não encontrado.");
-                return;
-            }
-
-            Console.WriteLine($"\nNúmero {resultado} encontrado com {busca.ContadorDeTentativas} tentativas.");
         }
     }
 }
