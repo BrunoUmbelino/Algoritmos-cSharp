@@ -1,8 +1,8 @@
 ﻿namespace Algoritmos
 {
-    public class OrdenacaoRapida
+    public static class OrdenacaoRapida
     {
-        public void InterfaceOrdenacaoRapida()
+        public static void InterfaceOrdenacaoRapida()
         {
             var arrAleatorio = new int[10];
             for (int i = 0; i < arrAleatorio.Length; i++)
@@ -11,11 +11,11 @@
             }
 
             Console.WriteLine("Lista Desordenada: " + String.Join(", ", arrAleatorio));
-            var resultado = AcionaOrdenacaoRapida(arrAleatorio);
+            var resultado = Ordenar(arrAleatorio);
             Console.WriteLine("Lista Ordenada: " + String.Join(", ", resultado));
         }
 
-        public IEnumerable<int> AcionaOrdenacaoRapida(IEnumerable<int> numeros)
+        public static IEnumerable<int> Ordenar(IEnumerable<int> numeros)
         {
             if (numeros.Count() <= 1) return numeros;
             var pivo = numeros.First();
@@ -23,9 +23,9 @@
             var maiores = numeros.Skip(1).Where(n => n > pivo);
 
             var pivoToList = new List<int>() { pivo };
-            return AcionaOrdenacaoRapida(menores)
+            return Ordenar(menores)
                 .Concat(pivoToList)
-                .Concat(AcionaOrdenacaoRapida(maiores));
+                .Concat(Ordenar(maiores));
         }
     }
 }
