@@ -1,3 +1,9 @@
 ﻿using Algoritmos;
 
-Console.WriteLine();
+internal class Program
+{
+    private static void Main(string[] args)
+    {
+        PesquisaEmLargura.PesquisarOPamonheiro();
+    }
+}
