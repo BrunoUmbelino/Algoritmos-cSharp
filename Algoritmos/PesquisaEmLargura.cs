@@ -4,15 +4,17 @@
     {
         public static void PesquisarOPamonheiro()
         {
-            var grafo = new Dictionary<string, string[]>();
-            grafo.Add("eu", new[] { "alice", "bob", "claire" });
-            grafo.Add("bob", new[] { "anuj", "peggy" });
-            grafo.Add("alice", new[] { "peggy" });
-            grafo.Add("claire", new[] { "thom", "jonny" });
-            grafo.Add("anuj", Array.Empty<string>());
-            grafo.Add("peggy", Array.Empty<string>());
-            grafo.Add("thom", Array.Empty<string>());
-            grafo.Add("jonny", Array.Empty<string>());
+            var grafo = new Dictionary<string, string[]>
+            {
+                { "eu", new[] { "alice", "bob", "claire" } },
+                { "bob", new[] { "anuj", "peggy" } },
+                { "alice", new[] { "peggy" } },
+                { "claire", new[] { "thom", "jonny" } },
+                { "anuj", Array.Empty<string>() },
+                { "peggy", Array.Empty<string>() },
+                { "thom", Array.Empty<string>() },
+                { "jonny", Array.Empty<string>() }
+            };
 
             var pontoDePartida = grafo["eu"];
             var filaDePesquisa = new Queue<string>(pontoDePartida);
