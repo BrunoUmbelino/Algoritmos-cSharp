@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-
-namespace Algoritmos
+﻿namespace Algoritmos
 {
     internal static class PesquisaEmLargura
     {
@@ -16,40 +13,6 @@ namespace Algoritmos
             grafo.Add("peggy", Array.Empty<string>());
             grafo.Add("thom", Array.Empty<string>());
             grafo.Add("jonny", Array.Empty<string>());
-
-            //var pessoas = new List<string>() { };
-            //foreach (var pessoa in grafo)
-            //{
-            //    pessoas.Add(pessoa.Key);
-            //}
-
-            //    while (pessoas.Count > 0)
-            //    {
-            //        var pessoa = pessoas.First();
-            //        Console.WriteLine($"Investigando {pessoa}...");
-
-            //        if (PessoaEhPamonheira(pessoa))
-            //        {
-            //            Console.WriteLine($"{pessoa} é o(a) pamonheiro(a).");
-            //            return;
-            //        }
-            //        else
-            //        {
-            //            var contatos = grafo.GetValueOrDefault(pessoa);
-            //            if (contatos != null)
-            //            {
-            //                foreach (var contato in contatos)
-            //                {
-            //                    if (!pessoas.Contains(contato)) 
-            //                        pessoas.Add(contato);
-            //                }
-            //            }
-            //        }
-            //        pessoas.Remove(pessoa);
-            //    }
-
-            //    Console.WriteLine("Não existe pamonheiro.");
-            //}
 
             var pontoDePartida = grafo["eu"];
             var filaDePesquisa = new Queue<string>(pontoDePartida);
