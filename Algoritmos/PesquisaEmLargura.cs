@@ -5,10 +5,10 @@
         public static void PesquisarOPamonheiro()
         {
             var grafo = new Dictionary<string, string[]>();
-            grafo.Add("eu", new string[] { "alice", "bob", "claire" });
-            grafo.Add("bob", new string[] { "anuj", "peggy" });
-            grafo.Add("alice", new string[] { "peggy" });
-            grafo.Add("claire", new string[] { "thom", "jonny" });
+            grafo.Add("eu", new[] { "alice", "bob", "claire" });
+            grafo.Add("bob", new[] { "anuj", "peggy" });
+            grafo.Add("alice", new[] { "peggy" });
+            grafo.Add("claire", new[] { "thom", "jonny" });
             grafo.Add("anuj", Array.Empty<string>());
             grafo.Add("peggy", Array.Empty<string>());
             grafo.Add("thom", Array.Empty<string>());
@@ -21,10 +21,10 @@
             while (filaDePesquisa.Any())
             {
                 var pessoa = filaDePesquisa.Dequeue();
-                Console.WriteLine($"Investigando {pessoa}...");
 
                 if (!listaDePessoasPesquisadas.Contains(pessoa))
                 {
+                    Console.WriteLine($"Investigando {pessoa}...");
                     if (PessoaEhPamonheira(pessoa))
                     {
                         Console.WriteLine($"{pessoa} é o(a) pamonheiro(a).");
